@@ -19,27 +19,17 @@ export class GuildsService {
    * Get All Guilds
    *
    * Fetches information for all guilds the user is a member of, abiding by the given query.
+   * @param channels Whether to resolve the guild's channels in the response.
+   * @param members Whether to resolve the guild's members in the response.
+   * @param roles Whether to resolve the guild's roles in the response.
    * @returns Guild Array of guild objects
    * @throws ApiError
    */
-  public getAllGuilds({
-    channels,
-    members,
-    roles,
-  }: {
-    /**
-     * Whether to resolve the guild's channels in the response.
-     */
+  public getAllGuilds(
     channels?: boolean,
-    /**
-     * Whether to resolve the guild's members in the response.
-     */
     members?: boolean,
-    /**
-     * Whether to resolve the guild's roles in the response.
-     */
     roles?: boolean,
-  }): CancelablePromise<Array<Guild>> {
+  ): CancelablePromise<Array<Guild>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/guilds',
@@ -59,14 +49,13 @@ export class GuildsService {
    * Create Guild
    *
    * Creates a new guild with the given payload.
+   * @param requestBody
    * @returns Guild Guild was successfully created
    * @throws ApiError
    */
-  public createGuild({
-    requestBody,
-  }: {
+  public createGuild(
     requestBody: CreateGuildPayload,
-  }): CancelablePromise<Guild> {
+  ): CancelablePromise<Guild> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/guilds',
@@ -84,14 +73,13 @@ export class GuildsService {
    *
    * Fetches information for the guild with the given ID. You must be a member of the guild to fetch
    * it.
+   * @param guildId
    * @returns Guild Guild object
    * @throws ApiError
    */
-  public getGuild({
-    guildId,
-  }: {
+  public getGuild(
     guildId: number,
-  }): CancelablePromise<Guild> {
+  ): CancelablePromise<Guild> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/guilds/{guild_id}',
@@ -111,16 +99,15 @@ export class GuildsService {
    * Delete Guild
    *
    * Deletes the guild with the given ID. You must be the owner of the guild to delete it.
+   * @param guildId
+   * @param requestBody
    * @returns void
    * @throws ApiError
    */
-  public deleteGuild({
-    guildId,
-    requestBody,
-  }: {
+  public deleteGuild(
     guildId: number,
     requestBody?: DeleteGuildPayload,
-  }): CancelablePromise<void> {
+  ): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/guilds/{guild_id}',
@@ -143,16 +130,15 @@ export class GuildsService {
    *
    * Modifies details of the guild with the given ID. You must have `MANAGE_GUILD` permissions to
    * modify the guild. Returns the modified guild as a partial guild on success.
+   * @param guildId
+   * @param requestBody
    * @returns PartialGuild Modified guild
    * @throws ApiError
    */
-  public editGuild({
-    guildId,
-    requestBody,
-  }: {
+  public editGuild(
     guildId: number,
     requestBody: EditGuildPayload,
-  }): CancelablePromise<PartialGuild> {
+  ): CancelablePromise<PartialGuild> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/guilds/{guild_id}',

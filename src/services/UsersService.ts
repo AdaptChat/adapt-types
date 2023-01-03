@@ -20,14 +20,13 @@ export class UsersService {
    * Create User
    *
    * Registers a new user account with the given payload.
+   * @param requestBody
    * @returns CreateUserResponse User ID and token
    * @throws ApiError
    */
-  public createUser({
-    requestBody,
-  }: {
+  public createUser(
     requestBody: CreateUserPayload,
-  }): CancelablePromise<CreateUserResponse> {
+  ): CancelablePromise<CreateUserResponse> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/users',
@@ -63,14 +62,13 @@ export class UsersService {
    * Delete User
    *
    * Deletes the user account of the authenticated user. This is irreversible.
+   * @param requestBody
    * @returns void
    * @throws ApiError
    */
-  public deleteUser({
-    requestBody,
-  }: {
+  public deleteUser(
     requestBody: DeleteUserPayload,
-  }): CancelablePromise<void> {
+  ): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/users/me',
@@ -88,14 +86,13 @@ export class UsersService {
    * Edit User
    *
    * Modifies information about the logged in user.
+   * @param requestBody
    * @returns User User object after modification
    * @throws ApiError
    */
-  public editUser({
-    requestBody,
-  }: {
+  public editUser(
     requestBody: EditUserPayload,
-  }): CancelablePromise<User> {
+  ): CancelablePromise<User> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/users/me',
@@ -114,14 +111,13 @@ export class UsersService {
    * Get User
    *
    * Fetches information about a user by their ID.
+   * @param userId
    * @returns User User object
    * @throws ApiError
    */
-  public getUser({
-    userId,
-  }: {
+  public getUser(
     userId: number,
-  }): CancelablePromise<User> {
+  ): CancelablePromise<User> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/users/{user_id}',

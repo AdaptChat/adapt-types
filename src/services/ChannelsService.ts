@@ -19,14 +19,13 @@ export class ChannelsService {
    *
    * Gets information about a channel given its ID. This includes guild channels, DM channels, and
    * group DM channels.
+   * @param channelId
    * @returns Channel Channel information
    * @throws ApiError
    */
-  public getChannel({
-    channelId,
-  }: {
+  public getChannel(
     channelId: number,
-  }): CancelablePromise<Channel> {
+  ): CancelablePromise<Channel> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/channels/{channel_id}',
@@ -47,14 +46,13 @@ export class ChannelsService {
    * Deletes a channel. For guild channels, you must have the `MANAGE_CHANNELS` permission to use
    * this endpoint. For standard DM channels, you must be a recipient of the DM. For group DM
    * channels, you must be the owner of the group DM.
+   * @param channelId
    * @returns void
    * @throws ApiError
    */
-  public deleteChannel({
-    channelId,
-  }: {
+  public deleteChannel(
     channelId: number,
-  }): CancelablePromise<void> {
+  ): CancelablePromise<void> {
     return this.httpRequest.request({
       method: 'DELETE',
       url: '/channels/{channel_id}',
@@ -75,16 +73,15 @@ export class ChannelsService {
    *
    * Edits a channel with the given payload.
    * For guild channels, you must have the `MODIFY_CHANNELS` permission to use this endpoint.
+   * @param channelId
+   * @param requestBody
    * @returns Channel Channel with updated details
    * @throws ApiError
    */
-  public editChannel({
-    channelId,
-    requestBody,
-  }: {
+  public editChannel(
     channelId: number,
     requestBody: EditChannelPayload,
-  }): CancelablePromise<Channel> {
+  ): CancelablePromise<Channel> {
     return this.httpRequest.request({
       method: 'PATCH',
       url: '/channels/{channel_id}',
@@ -107,14 +104,13 @@ export class ChannelsService {
    * Get Guild Channels
    *
    * Returns a list of all channels in the guild.
+   * @param guildId
    * @returns GuildChannel Array of guild channels
    * @throws ApiError
    */
-  public getGuildChannels({
-    guildId,
-  }: {
+  public getGuildChannels(
     guildId: number,
-  }): CancelablePromise<Array<GuildChannel>> {
+  ): CancelablePromise<Array<GuildChannel>> {
     return this.httpRequest.request({
       method: 'GET',
       url: '/guilds/{guild_id}/channels',
@@ -134,16 +130,15 @@ export class ChannelsService {
    *
    * Creates a new channel in the guild with the given payload. You must have the `MANAGE_CHANNELS`
    * permission to use this endpoint.
+   * @param guildId
+   * @param requestBody
    * @returns Channel Channel was successfully created
    * @throws ApiError
    */
-  public createGuildChannel({
-    guildId,
-    requestBody,
-  }: {
+  public createGuildChannel(
     guildId: number,
     requestBody: CreateGuildChannelPayload,
-  }): CancelablePromise<Channel> {
+  ): CancelablePromise<Channel> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/guilds/{guild_id}/channels',

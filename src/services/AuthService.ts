@@ -16,14 +16,13 @@ export class AuthService {
    * Generate Token (Login)
    *
    * Login to the API with your email and password to retrieve an authentication token.
+   * @param requestBody
    * @returns LoginResponse Login successful
    * @throws ApiError
    */
-  public login({
-    requestBody,
-  }: {
+  public login(
     requestBody: LoginRequest,
-  }): CancelablePromise<LoginResponse> {
+  ): CancelablePromise<LoginResponse> {
     return this.httpRequest.request({
       method: 'POST',
       url: '/login',
