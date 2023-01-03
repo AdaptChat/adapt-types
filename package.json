@@ -1,0 +1,11 @@
+{
+  "name": "adapt-types",
+  "version": "0.1.0",
+  "author": "jay3332",
+  "repository": "https://github.com/AdaptChat/adapt-types",
+  "description": "Auto-generated definitions for Adapt REST API",
+  "devDependencies": {
+    "axios": "^1.2.2",
+    "form-data": "^4.0.0"
+  }
+}
