@@ -8,6 +8,7 @@ import { AxiosHttpRequest } from './core/AxiosHttpRequest';
 import { AuthService } from './services/AuthService';
 import { ChannelsService } from './services/ChannelsService';
 import { GuildsService } from './services/GuildsService';
+import { RolesService } from './services/RolesService';
 import { UsersService } from './services/UsersService';
 
 type HttpRequestConstructor = new (config: OpenAPIConfig) => BaseHttpRequest;
@@ -17,6 +18,7 @@ export class Adapt {
   public readonly auth: AuthService;
   public readonly channels: ChannelsService;
   public readonly guilds: GuildsService;
+  public readonly roles: RolesService;
   public readonly users: UsersService;
 
   public readonly request: BaseHttpRequest;
@@ -37,6 +39,7 @@ export class Adapt {
     this.auth = new AuthService(this.request);
     this.channels = new ChannelsService(this.request);
     this.guilds = new GuildsService(this.request);
+    this.roles = new RolesService(this.request);
     this.users = new UsersService(this.request);
   }
 }

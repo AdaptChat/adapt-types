@@ -83,6 +83,29 @@ export type Error = ({
   type: Error.type;
 } | {
   /**
+   * The desired position your top role should be in the role hierarchy.
+   */
+  desired_position: number;
+  /**
+   * The ID of the guild you are not the owner of.
+   */
+  guild_id: number;
+  /**
+   * The error message.
+   */
+  message: string;
+  /**
+   * The ID of your top role. This is the role you possess with the highest position.
+   * This is `None` if you have no roles (the default role).
+   */
+  top_role_id?: number;
+  /**
+   * The position of your top role.
+   */
+  top_role_position: number;
+  type: Error.type;
+} | {
+  /**
    * The ID of the guild you are missing permissions in.
    */
   guild_id: number;
@@ -91,6 +114,20 @@ export type Error = ({
    */
   message: string;
   permissions: Permissions;
+  type: Error.type;
+} | {
+  /**
+   * The ID of the guild the role is in.
+   */
+  guild_id: number;
+  /**
+   * The error message.
+   */
+  message: string;
+  /**
+   * The ID of the role that is managed.
+   */
+  role_id: number;
   type: Error.type;
 } | {
   /**

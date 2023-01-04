@@ -66,4 +66,5 @@ export type { UserFlags } from './models/UserFlags';
 export { AuthService } from './services/AuthService';
 export { ChannelsService } from './services/ChannelsService';
 export { GuildsService } from './services/GuildsService';
+export { RolesService } from './services/RolesService';
 export { UsersService } from './services/UsersService';
