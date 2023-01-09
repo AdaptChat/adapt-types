@@ -96,9 +96,8 @@ export type Error = ({
   message: string;
   /**
    * The ID of your top role. This is the role you possess with the highest position.
-   * This is `None` if you have no roles (the default role).
    */
-  top_role_id?: number;
+  top_role_id: number;
   /**
    * The position of your top role.
    */
@@ -128,6 +127,16 @@ export type Error = ({
    * The ID of the role that is managed.
    */
   role_id: number;
+  type: Error.type;
+} | {
+  /**
+   * The ID of the guild or group DM you are trying to leave.
+   */
+  id: number;
+  /**
+   * The error message.
+   */
+  message: string;
   type: Error.type;
 } | {
   /**
